@@ -1,0 +1,28 @@
+{
+	"dependencies": {
+		"express": "^4.17.2",
+		"http-errors": "^2.0.0",
+		"jest": "^27.5.1",
+		"pg": "^8.7.3",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.16.0",
+		"supertest": "^6.2.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	},
+	"name": "server",
+	"version": "1.0.0",
+	"description": "Node.js server for Task Tracker App",
+	"main": "app.js",
+	"directories": {
+		"test": "tests"
+	},
+	"scripts": {
+		"start:dev": "nodemon app.js",
+		"start:prod": "node app.js",
+		"test": "jest"
+	},
+	"author": "Chris Kearse",
+	"license": "MIT"
+}
