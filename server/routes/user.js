@@ -2,7 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const {
+	validateCreateUser,
+	validateGetUser,
+	validateUpdateUser,
+} = require('../validators/user');
+
 const {
 	getUsers,
 	getUser,
@@ -12,18 +17,21 @@ const {
 } = require('../controllers/user');
 
 //get all users
+//TODO: restrict access to admin user
 router.get('/', getUsers);
 
 //get user by 'id' - using UUID as record identifier*
-router.get('/', getUser);
+//TODO: restrict access to admin user
+router.get('/:id', validateGetUser, getUser);
 
 //post user
-router.post('/', createUser);
+router.post('/', validateCreateUser, createUser);
 
 //update user by 'id' - using UUID as record identifier*
-router.put('/', updateUser);
 
-//delete user by 'id' - using UUID as record identifier*
-router.delete('/', deleteUser);
+router.put('/:id', validateUpdateUser, updateUser);
+
+//delete user by 'id' - not used, will update delete column for user record
+router.delete('/:id', deleteUser);
 
 module.exports = router;

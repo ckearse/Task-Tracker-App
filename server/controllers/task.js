@@ -1,9 +1,12 @@
 /** @format */
 
+const createError = require('http-errors');
+
 //get all Tasks
 const getTasks = async (req, res, next) => {
 	try {
 		//TODO
+		next(createError(500, 'Not Implemented'));
 	} catch (error) {
 		next();
 	}
@@ -13,6 +16,7 @@ const getTasks = async (req, res, next) => {
 const getTask = async (req, res, next) => {
 	try {
 		//TODO
+		next(createError(500, 'Not Implemented'));
 	} catch (error) {
 		next();
 	}
@@ -22,6 +26,7 @@ const getTask = async (req, res, next) => {
 const createTask = async (req, res, next) => {
 	try {
 		//TODO
+		next(createError(500, 'Not Implemented'));
 	} catch (error) {
 		next();
 	}
@@ -31,6 +36,7 @@ const createTask = async (req, res, next) => {
 const updateTask = async (req, res, next) => {
 	try {
 		//TODO
+		next(createError(500, 'Not Implemented'));
 	} catch (error) {
 		next();
 	}
@@ -40,6 +46,7 @@ const updateTask = async (req, res, next) => {
 const deleteTask = async (req, res, next) => {
 	try {
 		//TODO
+		next(createError(500, 'Not Implemented'));
 	} catch (error) {
 		next();
 	}

@@ -19,12 +19,14 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/users', require('./routes/user'));
+app.use('/tasks', require('./routes/task'));
 
 app.use((err, req, res, next) => {
 	//TODO: handle dev errors
 	//TODO: handle prod errors
 
 	res.status(err.status || 500);
+	res.send('There be errors!');
 	res.json({
 		message: err.message,
 		error: err,

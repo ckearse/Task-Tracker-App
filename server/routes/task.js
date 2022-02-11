@@ -2,7 +2,6 @@
 
 const express = require('express');
 const router = express.Router();
-const Task = require('../models/Task');
 const {
 	getTasks,
 	getTask,
@@ -15,15 +14,15 @@ const {
 router.get('/', getTasks);
 
 //get task by 'id' - using UUID as record identifier*
-router.get('/', getTask);
+router.get('/:id', getTask);
 
 //post user
 router.post('/', createTask);
 
 //update task by 'id' - using UUID as record identifier*
-router.put('/', updateTask);
+router.put('/:id', updateTask);
 
 //delete task by 'id' - using UUID as record identifier*
-router.delete('/', deleteTask);
+router.delete('/:id', deleteTask);
 
 module.exports = router;

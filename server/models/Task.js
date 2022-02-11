@@ -10,7 +10,7 @@ Task.init(
 		id: {
 			type: DataTypes.UUID,
 			defaultValue: DataTypes.UUIDV4,
-			primary: true,
+			primaryKey: true,
 		},
 		title: {
 			type: DataTypes.STRING,
@@ -21,14 +21,21 @@ Task.init(
 			allowNull: false,
 		},
 		completed: {
-			type: DateTypes.BOOLEAN,
+			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 			allowNull: false,
 		},
-		user_id: {
-			type: DataTypes.UUIDV4,
+		deleted: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
 			allowNull: false,
 		},
 	},
-	{ sequelize }
+	{ modelName: 'task', tableName: 'tasks', sequelize }
 );
+
+(async () => {
+	await sequelize.sync();
+})();
+
+module.exports = Task;
